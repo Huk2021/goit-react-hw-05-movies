@@ -5,16 +5,22 @@ import AppBar from 'components/AppBar/AppBar';
 
 
 const HomePage = lazy(() => import('./components/HomePage/HomePage'));
+const MoviesPage = lazy(() => import('./components/MoviesPage/MoviesPage'));
 
 export default function App() {
     return (
         <Container>
           <AppBar />
-           <Suspense fallback={<h1>ЗАГРУЖАЕМ МАРШРУТ...</h1>}>
+           <Suspense fallback={<h1>LOADING...</h1>}>
              <Switch>
                <Route path="/" exact>
                   <HomePage />
-                </Route>
+               </Route>
+                    
+               <Route path="/movies" exact>
+                  <MoviesPage />
+               </Route>
+                    
             </Switch>
            </Suspense>
         </Container>
