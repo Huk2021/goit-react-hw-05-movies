@@ -1,6 +1,8 @@
 import {lazy, useEffect, useState,  Suspense } from "react";
 import { useParams, useRouteMatch, Route, NavLink, useLocation, useHistory } from "react-router-dom";
-import {fetchMovieDetails} from '../../services/api';
+import { fetchMovieDetails } from '../../services/api';
+import { GoToBackBtn } from './MovieDetailsPage.styled';
+import {Container, ContainerInfo, ContainerNav, Link,  TittleNav } from './MovieDetailsPage.styled'
 
 
 const Cast = lazy(() => import('../Cast/Cast' /* webpackChunkName: "Cast" */),);
@@ -24,11 +26,11 @@ export default function MovieDetailsPage() {
     return (
         <>
             {movie && <>                
-                <button type="button" onClick={onGoBack} >Go back</button>
-                <div>
+                <GoToBackBtn type="button" onClick={onGoBack} >Go back</GoToBackBtn>
+                <Container>
                  <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} width="300" />
                 
-                <div>
+                  <ContainerInfo>
                     <h2>{movie.title} </h2>
                     <p><span >Release date: </span>{movie.release_date}</p>
                     <p><span >Popularity: </span>{movie.popularity}</p>
@@ -38,13 +40,13 @@ export default function MovieDetailsPage() {
                         {movie.genres.map(genre =>
                             <li key={genre.id} >{genre.name}</li>)}
                     </ul>  
-                </div>
-             </div>   
+                </ContainerInfo>
+             </Container>   
             </>
             }
-            <div >
-                <nav>
-                    <NavLink
+            <ContainerNav >
+              <TittleNav>Additional information</TittleNav> 
+                    <Link
               
               to={`/movies/${movieId}/cast`}
               state={{
@@ -52,8 +54,8 @@ export default function MovieDetailsPage() {
               }}
             >
               Cast
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
                   
               to={`/movies/${movieId}/reviews`}
               state={{
@@ -61,11 +63,12 @@ export default function MovieDetailsPage() {
               }}
             >
               Reviews
-            </NavLink>
-                </nav>
-            </div>
-
-            <Suspense fallback={<h1>LOADING...</h1>}>
+            </Link>
+                
+            </ContainerNav>
+                
+        <Suspense fallback={<h1>LOADING...</h1>}>
+         
              <Route path={`${path}/cast`}>
                 <Cast /> 
             </Route>

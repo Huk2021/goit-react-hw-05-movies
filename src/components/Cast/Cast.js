@@ -4,7 +4,7 @@ import { fetchMovieCredits } from "../../services/api";
 
 
 const picturePath = "https://image.tmdb.org/t/p/w200";
-const pictureDefaultProfile =  "https://i.stack.imgur.com/l60Hf.png";
+const pictureDefaultProfile =  "https://cdn1.vectorstock.com/i/thumb-large/77/30/default-avatar-profile-icon-grey-photo-placeholder-vector-17317730.jpg";
 
 const Cast = () => {
   const [cast, setCast] = useState(null);

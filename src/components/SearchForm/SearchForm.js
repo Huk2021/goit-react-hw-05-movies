@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from 'prop-types';
+import { Form, Input, Button } from "./SearchForm.styled";
 
 export default function SearchForm({onSubmit}) {
     const [searchQuery, setSearchQuery] = useState('');
@@ -23,8 +24,8 @@ export default function SearchForm({onSubmit}) {
 
     return (
       <div>
-        <form onSubmit={handleFormSubmit}>
-          <input
+        <Form onSubmit={handleFormSubmit}>
+          <Input
             onChange={handleChange}
             value={searchQuery}
             name="query"
@@ -33,8 +34,8 @@ export default function SearchForm({onSubmit}) {
             autoFocus
             placeholder="type to search movies..."
           />
-          <button type="submit"/>
-        </form>
+          <Button type="submit">Search</Button> 
+        </Form>
       </div>
   );
 }

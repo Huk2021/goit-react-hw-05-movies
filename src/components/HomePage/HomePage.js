@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchTrendingMovies } from '../../services/api';
 import MovieList from '../MoviesList/MoviesList';
+import {Tittle} from './HomePage.styled'
 
 
 export default function HomePage() {
@@ -14,6 +15,7 @@ export default function HomePage() {
 
     return (
       <>
+      <Tittle>Trending today</Tittle>
      {movieList && <MovieList list={movieList} />}
       </>  
     );
