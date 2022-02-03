@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { fetchSearchMovie} from '../../services/api';
@@ -19,11 +20,14 @@ import MoviesList from '../MoviesList/MoviesList';
 
   useEffect(() => {
     setSearchQuery(getQueryFromSearch);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    if (searchQuery.trim() === "") return;
-    fetchSearchMovie(searchQuery).then((res) => setList(res.results));
+    if (searchQuery.trim() === "")
+    return;
+    fetchSearchMovie(searchQuery)
+    .then((res) => setList(res.results));
     history.push({ ...location, search: `query=${searchQuery}` });
   }, [searchQuery]);
 
