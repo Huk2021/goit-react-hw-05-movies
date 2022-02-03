@@ -1,5 +1,5 @@
 import {lazy, useEffect, useState,  Suspense } from "react";
-import { useParams, useRouteMatch, Route, NavLink, useLocation, useHistory } from "react-router-dom";
+import { useParams, useRouteMatch, Route,  useLocation, useHistory } from "react-router-dom";
 import { fetchMovieDetails } from '../../services/api';
 import { GoToBackBtn } from './MovieDetailsPage.styled';
 import {Container, ContainerInfo, ContainerNav, Link,  TittleNav } from './MovieDetailsPage.styled'
