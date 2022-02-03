@@ -6,6 +6,7 @@ import AppBar from 'components/AppBar/AppBar';
 
 const HomePage = lazy(() => import('./components/HomePage/HomePage'));
 const MoviesPage = lazy(() => import('./components/MoviesPage/MoviesPage'));
+const MovieDetailsPage = lazy(() => import('./components/MovieDetailsPage/MovieDetailsPage'));
 
 export default function App() {
     return (
@@ -16,9 +17,13 @@ export default function App() {
                <Route path="/" exact>
                   <HomePage />
                </Route>
-                    
+                                  
                <Route path="/movies" exact>
                   <MoviesPage />
+               </Route>
+               
+               <Route path="/movies/:movieId">
+                  <MovieDetailsPage />
                </Route>
                     
             </Switch>
