@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchMovieCredits } from "../../services/api";
@@ -16,7 +15,7 @@ const Cast = () => {
     fetchMovieCredits(movieId)
       .then((result) => setCast([...result.cast]))
      
-  }, []);
+  }, [movieId]);
 
   return (
     <section >
