@@ -7,16 +7,16 @@ export default function MovieList({ list }) {
 
   return (
     <ListMovie >
-      {list !== [] &&
-        list.map(movie => (
-          <li  key={movie.id}>
+      {list  &&
+        list.map(({id, title}) => (
+          <li  key={id}>
             <Link
               to={{
-                pathname: `/movies/${movie.id}`,
+                pathname: `/movies/${id}`,
                 state: { from: location },
               }}
             >
-              {movie.name ? movie.name : movie.title}
+            {title}
             </Link>
           </li>
         ))}

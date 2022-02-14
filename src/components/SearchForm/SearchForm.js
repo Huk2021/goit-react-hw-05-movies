@@ -5,7 +5,7 @@ import { Form, Input, Button } from "./SearchForm.styled";
 export default function SearchForm({onSubmit}) {
     const [searchQuery, setSearchQuery] = useState('');
 
-    const handleChange = (e) => {
+    const handleChange = e => {
     setSearchQuery(e.currentTarget.value.toLowerCase().trim());
     };
     

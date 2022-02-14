@@ -8,11 +8,11 @@ import MoviesList from '../MoviesList/MoviesList';
 
  export default function MoviesPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [list, setList] = useState(null);
+  const [list, setList] = useState([]);
   const history = useHistory();
   const location = useLocation();
 
-  const getQueryFromSearch =  new URLSearchParams(location.search).get("searchQuery") ?? "";
+  const getQueryFromSearch =  new URLSearchParams(location.search).get("query") ?? "";
 
   const handleFormSubmit = (nextQuery) => {
     setSearchQuery(nextQuery);
