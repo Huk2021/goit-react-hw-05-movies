@@ -8,7 +8,7 @@ export default function MovieList({ list }) {
   return (
     <ListMovie >
       {list  &&
-        list.map(({id, title}) => (
+        list.map(({id, title, name}) => (
           <li  key={id}>
             <Link
               to={{
@@ -16,6 +16,7 @@ export default function MovieList({ list }) {
                 state: { from: location },
               }}
             >
+            {name ? name : title}
             {title}
             </Link>
           </li>
