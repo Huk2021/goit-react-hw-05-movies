@@ -48,19 +48,15 @@ export default function MovieDetailsPage() {
               <TittleNav>Additional information</TittleNav> 
                     <Link
               
-              to={`/movies/${movieId}/cast`}
-              state={{
-                from: location.from?.location,
-              }}
+            to={{ pathname: `/movies/${movieId}/cast`, state: location.state }}
+              
             >
               Cast
             </Link>
             <Link
                   
-              to={`/movies/${movieId}/reviews`}
-              state={{
-                from: location.from,
-              }}
+            to={{ pathname: `/movies/${movieId}/reviews`, state: location.state }}
+             
             >
               Reviews
             </Link>
